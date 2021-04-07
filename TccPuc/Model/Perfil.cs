@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace TccPuc.Model
 {
-    [Table("Perfil")]
+    [Table("perfil")]
     public class Perfil
     {
         [Display(Name = "Id")]

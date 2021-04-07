@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace TccPuc.Model
 {
+    [Table("usuario")]
     public class Usuario
     {
         [Display(Name = "Nome")]

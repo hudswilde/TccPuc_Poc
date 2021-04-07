@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace TccPuc.Model
 {
+    [Table("standards")]
     public class Standards
 	{
         [Display(Name = "Organização")]
