@@ -12,42 +12,42 @@ namespace TccPuc.Model
 	{
         [Display(Name = "Id")]
         [Column("Id")]
-        public int Id { get; set; }
+        public int id { get; set; }
 
         [Display(Name = "Departamento")]
         [Column("Department")]
-        public String Department { get; set; }
+        public String department { get; set; }
 
         [Display(Name = "Setor")]
         [Column("Sector")]
-        public String Sector { get; set; }
+        public String sector { get; set; }
 
         [Display(Name = "Compania")]
         [Column("Company")]
-        public String Company { get; set; }
+        public String company { get; set; }
 
         [Display(Name = "Cnpj")]
         [Column("Cnpj")]
-        public String Cnpj { get; set; }
+        public String cnpj { get; set; }
 
         [Display(Name = "HiringDate")]
         [Column("HiringDate")]
-        public DateTime HiringDate { get; set; }
+        public DateTime hiringDate { get; set; }
 
         [Display(Name = "Data início")]
         [Column("StartDate")]
-        public DateTime StartDate { get; set; }
+        public DateTime startDate { get; set; }
 
         [Display(Name = "Data Fim")]
         [Column("EndDate")]
-        public DateTime EndDate { get; set; }
+        public DateTime endDate { get; set; }
 
         [Display(Name = "Situação")]
         [Column("Situation")]
-        public String Situation { get; set; }
+        public String situation { get; set; }
 
         [Display(Name = "Ativo")]
         [Column("Active")]
-        public bool Active { get; set; }
+        public bool active { get; set; }
     }
 }

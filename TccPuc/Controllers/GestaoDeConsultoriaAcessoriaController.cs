@@ -8,7 +8,7 @@ using TccPuc.Model;
 
 namespace TccPuc.Controllers
 {
-    [Route("/api/[controller]")]
+    [Route("/api/Consultancies")]
     public class GestaoDeConsultoriaAcessoriaController : Controller
     {
         private readonly IGestaoDeConsultoriaAcessoria gestaoDeConsultoriaAcessoria;
@@ -17,8 +17,7 @@ namespace TccPuc.Controllers
             this.gestaoDeConsultoriaAcessoria = gestaoDeConsultoriaAcessoria;
         }
 
-        [Route("/api/[controller]/get")]
-        [HttpGet]
+        [HttpGet("{id}")]
         public Consultancies GetConsultancies([FromBody] int id)
         {
             Task<Consultancies> consultancies = gestaoDeConsultoriaAcessoria.FindByIdAsync(id);
@@ -27,10 +26,15 @@ namespace TccPuc.Controllers
         }
 
 
+        [HttpGet]
+        public IEnumerable<Consultancies> GetListStandards()
+        {
+            Task<IEnumerable<Consultancies>> consultanciesList = gestaoDeConsultoriaAcessoria.ListAsync();
 
+            return consultanciesList.Result;
+        }
 
-        [Route("/api/[controller]/delete")]
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public bool DeleteConsultancies([FromBody] int id)
         {
             try
@@ -45,7 +49,6 @@ namespace TccPuc.Controllers
             }
         }
 
-        [Route("/api/[controller]/post")]
         [HttpPost]
         public bool PostConsultancies([FromBody] Consultancies consultancies)
         {
@@ -60,9 +63,8 @@ namespace TccPuc.Controllers
             }
         }
 
-        [Route("/api/[controller]/update")]
-        [HttpPost]
-        public bool PostUpdateStandards([FromBody] Consultancies consultancies)
+        [HttpPut]
+        public bool PutUpdateStandards([FromBody] Consultancies consultancies)
         {
             try
             {

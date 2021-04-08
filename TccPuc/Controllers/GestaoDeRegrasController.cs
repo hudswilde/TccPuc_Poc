@@ -10,7 +10,7 @@ using TccPuc.Model.Request;
 
 namespace TccPuc.Controllers
 {
-    [Route("/api/[controller]")]
+    [Route("/api/Standards")]
     public class GestaoDeRegrasController : Controller
     {
         private readonly IGestaoDeRegrasServico gestaoDeRegrasServico;
@@ -20,8 +20,8 @@ namespace TccPuc.Controllers
         }
 
         [Authorize(Roles = "Administrador")]
-        [Route("/api/[controller]/get")]
-        [HttpGet]
+        //[Route("/api/[controller]/get")]
+        [HttpGet("{id}")]
         public Standards GetStandards([FromBody] int id)
         {
             Task<Standards> standards = gestaoDeRegrasServico.FindByIdAsync(id);
@@ -29,9 +29,17 @@ namespace TccPuc.Controllers
             return standards.Result;
         }
 
+        [HttpGet]
+        public IEnumerable<Standards> GetListStandards()
+        {
+            Task<IEnumerable<Standards>> standardsList = gestaoDeRegrasServico.ListAsync();
 
-        [Route("/api/[controller]/delete")]
-        [HttpDelete]
+            return standardsList.Result;
+        }
+
+
+        //[Route("/api/[controller]/delete")]
+        [HttpDelete("{id}")]
         public bool DeleteStandards([FromBody] int id)
         {
             try
@@ -46,7 +54,7 @@ namespace TccPuc.Controllers
             }
         }
 
-        [Route("/api/[controller]/post")]
+        //[Route("/api/[controller]/post")]
         [HttpPost]
         public bool PostStandards([FromBody] Standards standards)
         {
@@ -61,9 +69,9 @@ namespace TccPuc.Controllers
             }
         }
 
-        [Route("/api/[controller]/update")]
-        [HttpPost]
-        public bool PostUpdateStandards([FromBody] Standards standards)
+        //[Route("/api/[controller]/update")]
+        [HttpPut]
+        public bool PutUpdateStandards([FromBody] Standards standards)
         {
             try
             {
