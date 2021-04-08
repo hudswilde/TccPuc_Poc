@@ -22,7 +22,7 @@ namespace TccPuc.Controllers
         [Authorize(Roles = "Administrador")]
         //[Route("/api/[controller]/get")]
         [HttpGet("{id}")]
-        public Standards GetStandards([FromBody] int id)
+        public Standards GetStandards(int id)
         {
             Task<Standards> standards = gestaoDeRegrasServico.FindByIdAsync(id);
 
@@ -40,7 +40,7 @@ namespace TccPuc.Controllers
 
         //[Route("/api/[controller]/delete")]
         [HttpDelete("{id}")]
-        public bool DeleteStandards([FromBody] int id)
+        public bool DeleteStandards( int id)
         {
             try
             {

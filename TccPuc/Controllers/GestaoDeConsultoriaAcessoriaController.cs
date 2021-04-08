@@ -18,7 +18,7 @@ namespace TccPuc.Controllers
         }
 
         [HttpGet("{id}")]
-        public Consultancies GetConsultancies([FromBody] int id)
+        public Consultancies GetConsultancies( int id)
         {
             Task<Consultancies> consultancies = gestaoDeConsultoriaAcessoria.FindByIdAsync(id);
 
@@ -35,7 +35,7 @@ namespace TccPuc.Controllers
         }
 
         [HttpDelete("{id}")]
-        public bool DeleteConsultancies([FromBody] int id)
+        public bool DeleteConsultancies( int id)
         {
             try
             {
