@@ -19,7 +19,7 @@ namespace TccPuc.Controllers
             this.gestaoDeRegrasServico = gestaoDeRegrasServico;
         }
 
-        [Authorize(Roles = "Administrador")]
+        //[Authorize(Roles = "Administrador")]
         //[Route("/api/[controller]/get")]
         [HttpGet("{id}")]
         public Standards GetStandards(int id)

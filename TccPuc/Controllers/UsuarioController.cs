@@ -22,8 +22,8 @@ namespace TccPuc.Controllers
         /// <summary>
         /// teste hudson teste hudson teste hudson
         /// </summary>
-        [HttpPost]
-        [Route("/api/[controller]/Login")]
+        [HttpGet]
+        //[Route("/api/[controller]/Login")]
         [AllowAnonymous]
         public Usuario GetUsuario([FromBody]RequestGetUsuario request)
         {
@@ -42,8 +42,8 @@ namespace TccPuc.Controllers
         }
 
         [HttpPost]
-        [Route("/api/[controller]/InserirUsuario")]
-        [Authorize]
+        //[Route("/api/[controller]/InserirUsuario")]
+        [AllowAnonymous]
         public Usuario PostUsuario([FromBody] Usuario usuario)
         {
             return usuarioServico.Post(usuario);
